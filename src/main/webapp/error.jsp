@@ -6,4 +6,5 @@
 	<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 	<span class="sr-only">Error:</span> CSRF Validation Failed
 </div>
+
 <%@include file="/WEB-INF/include/footer.jsp" %>

@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
 	import="java.util.List, org.apache.commons.lang3.StringEscapeUtils, com.johnnking.csrf.UserManager, com.johnnking.csrf.User"%>
+<%@include file="/WEB-INF/include/header.jsp" %>
+
 <%
 	UserManager.init();
 	List<User> users = UserManager.getUsers();
 %>
-<%@include file="/WEB-INF/include/header.jsp" %>
 
 Hello <%= StringEscapeUtils.escapeHtml4((String) session.getAttribute("username")) %><br><br>
 
