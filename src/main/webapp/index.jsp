@@ -8,7 +8,9 @@
 	List<User> users = UserManager.getUsers();
 %>
 
-Hello <%= StringEscapeUtils.escapeHtml4((String) session.getAttribute("username")) %><br><br>
+<% if (session.getAttribute("username") != null) { %>
+	Hello <%= StringEscapeUtils.escapeHtml4((String) session.getAttribute("username")) %><br><br>
+<% } %>
 
 <div class="panel-heading"><h2>Users</h2></div>
 <ul class="list-group">
