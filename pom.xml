@@ -35,11 +35,14 @@
 			<artifactId>hsqldb</artifactId>
 			<version>2.3.3</version>
 		</dependency>
+		
+		<!-- 
 		<dependency>
 			<groupId>org.owasp</groupId>
 			<artifactId>csrfguard</artifactId>
 			<version>3.1.0</version>
 		</dependency>
+		 -->
 	</dependencies>
 	<build>
 		<finalName>csrf-jee-example</finalName>
