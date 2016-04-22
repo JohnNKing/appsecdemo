@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"
-	import="java.util.List, com.johnnking.csrf.UserManager, com.johnnking.csrf.User"%>
+	pageEncoding="UTF-8"%>
 <%
 if (session.getAttribute("username") == null) {
 	response.sendRedirect("login.jsp");
