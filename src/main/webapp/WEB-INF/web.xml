@@ -23,7 +23,15 @@
 		<servlet-class>com.johnnking.csrf.AddUser</servlet-class>
 	</servlet>
 	
+	<servlet-mapping>
+		<servlet-name>AddComment</servlet-name>
+		<url-pattern>/AddComment</url-pattern>
+	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>AddComment</servlet-name>
+		<servlet-class>com.johnnking.csrf.AddComment</servlet-class>
+	</servlet>
 
 	<!--
 	<listener>

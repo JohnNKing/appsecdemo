@@ -7,7 +7,10 @@ if (session.getAttribute("username") == null) {
 %>
 <%@include file="/WEB-INF/include/header.jsp" %>
 
-<h2>User Form</h2>
+<div class="panel-heading">
+	<h2>User Form</h2>
+</div>
+
 <form id="form" action="http://localhost:8080/csrf-jee-example/AddUser" method="POST" class="navbar-form navbar-left">
 	<div class="form-group">
 		<input type="text" name="name" class="form-control" placeholder="username">

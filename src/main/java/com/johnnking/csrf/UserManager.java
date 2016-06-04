@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -103,11 +104,13 @@ public class UserManager {
 		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
 
 		try {
-			PreparedStatement stmt = conn.prepareStatement("select * from users where name = ?");
+			Statement stmt = conn.createStatement();
+			//PreparedStatement stmt = conn.prepareStatement("select * from users where name = ?");
 			
 			try {
-				stmt.setString(1, name);
-				ResultSet rs = stmt.executeQuery();
+				ResultSet rs = stmt.executeQuery("select * from users where name = '" + name + "';");
+				//stmt.setString(1, name);
+				//ResultSet rs = stmt.executeQuery();
 			
 				try {
 					if (rs.next()) {
