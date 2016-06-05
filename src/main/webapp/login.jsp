@@ -3,23 +3,23 @@
 	import="org.apache.commons.lang3.StringEscapeUtils" %>
 <%@include file="/WEB-INF/include/header.jsp" %>
 
-<div class="panel-heading">
-	<h2>Login</h2>
-</div>
+<h2>Sign In</h2>
 
-<form action="Login" method="POST" class="navbar-form navbar-left">
+<form action="Login" method="POST" class="form-inline">
 	<div class="form-group">
-		<input type="text" name="username" class="form-control" placeholder="username">
+		<label class="sr-only" for="username">Username</label>
+		<input type="text" id="username" name="username" class="form-control" placeholder="Username">
 	</div>
 	<div class="form-group">
-		<input type="password" name="password" class="form-control" placeholder="password">
+		<label class="sr-only" for="username">Password</label>
+		<input type="password" id="password" name="password" class="form-control" placeholder="Password">
 	</div>
 	<%
 	String destination = request.getParameter("destination");
 	if (destination != null) { %>
 		<input type="hidden" name="destination" value="<%= destination %>">
 	<% } %>
-	<button type="submit" class="btn btn-default">Log In</button>
+	<button type="submit" class="btn btn-default">Sign In</button>
 </form>
 
 <%@include file="/WEB-INF/include/footer.jsp" %>

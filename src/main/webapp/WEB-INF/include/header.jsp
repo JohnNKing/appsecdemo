@@ -32,12 +32,12 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<% if (session.getAttribute("username") == null) { %>
-						<li><a href="/appsecdemo/login.jsp">Login</a></li>
+						<li><a href="/appsecdemo/login.jsp">Sign In</a></li>
 					<% } else { %>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= StringEscapeUtils.escapeHtml4((String) session.getAttribute("username")) %> <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/appsecdemo/Logout">Logout</a></li>
+								<li><a href="/appsecdemo/Logout">Sign Out</a></li>
 							</ul> 
 						</li>
 					<% } %>

@@ -37,11 +37,11 @@
 	<% } %>
 </ul>
 
-<form id="form" action="AddComment" method="POST" class="navbar-form navbar-left">
+<form id="form" action="AddComment" method="POST" class="">
 	<div class="form-group">
-		<input type="text" name="comment" class="form-control" placeholder="your comment">
+		<textarea name="comment" class="form-control" placeholder="Your comment..."></textarea>
 	</div>
-	<button type="submit" class="btn btn-default">Post Comment</button>
+	<button type="submit" class="btn btn-default">Post</button>
 </form>
 
 </div>

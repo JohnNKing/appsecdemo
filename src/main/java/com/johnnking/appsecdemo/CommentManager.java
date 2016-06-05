@@ -25,7 +25,7 @@ public class CommentManager {
 		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
 
 		try {
-			PreparedStatement stmt = conn.prepareStatement("CREATE TABLE IF NOT EXISTS comments (comment varchar(255), username varchar(255))");						
+			PreparedStatement stmt = conn.prepareStatement("CREATE TABLE IF NOT EXISTS comments (comment varchar(65535), username varchar(255))");						
 			
 			try {
 				stmt.execute();
