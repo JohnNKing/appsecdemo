@@ -34,14 +34,14 @@ public class CommentManager {
 					CommentManager.addComment(new Comment("Hello!", "John"));
 				}
 			    
-			} catch (SQLException e ) {
+			} catch (SQLException e) {
 				throw e;
 				
 			} finally {
 				stmt.close();
 			}
 			
-		} catch (SQLException e ) {
+		} catch (SQLException e) {
 			throw e;
 			
 		} finally {
@@ -69,21 +69,21 @@ public class CommentManager {
 				    	result.add(new Comment(rs.getString("comment"), rs.getString("username")));
 			    	}
 				    
-				} catch (SQLException e ) {
+				} catch (SQLException e) {
 					throw e;
 					
 				} finally {
 					rs.close();
 				} 
 			    
-			} catch (SQLException e ) {
+			} catch (SQLException e) {
 				throw e;
 				
 			} finally {
 				stmt.close();
 			}
 			
-		} catch (SQLException e ) {
+		} catch (SQLException e) {
 			throw e;
 			
 		} finally {
@@ -110,14 +110,14 @@ public class CommentManager {
 				//stmt.setString(1, comment.getComment());
 				//stmt.execute();
 			    
-			} catch (SQLException e ) {
+			} catch (SQLException e) {
 				throw e;
 				
 			} finally {
 				stmt.close();
 			}
 			
-		} catch (SQLException e ) {
+		} catch (SQLException e) {
 			throw e;
 			
 		} finally {

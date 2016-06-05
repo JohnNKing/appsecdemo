@@ -34,14 +34,14 @@ public class UserManager {
 					UserManager.addUser(new User("John"));
 				}
 			    
-			} catch (SQLException e ) {
+			} catch (SQLException e) {
 				throw e;
 				
 			} finally {
 				stmt.close();
 			}
 			
-		} catch (SQLException e ) {
+		} catch (SQLException e) {
 			throw e;
 			
 		} finally {
@@ -69,21 +69,21 @@ public class UserManager {
 				    	result.add(new User(rs.getString("name")));
 			    	}
 				    
-				} catch (SQLException e ) {
+				} catch (SQLException e) {
 					throw e;
 					
 				} finally {
 					rs.close();
 				} 
 			    
-			} catch (SQLException e ) {
+			} catch (SQLException e) {
 				throw e;
 				
 			} finally {
 				stmt.close();
 			}
 			
-		} catch (SQLException e ) {
+		} catch (SQLException e) {
 			throw e;
 			
 		} finally {
@@ -108,6 +108,8 @@ public class UserManager {
 			//PreparedStatement stmt = conn.prepareStatement("select * from users where name = ?");
 			
 			try {
+				//x', 'x'); DELETE FROM comments; insert into comments values('Bwhahahahahah','Pwned'); --
+								   
 				ResultSet rs = stmt.executeQuery("select * from users where name = '" + name + "';");
 				//stmt.setString(1, name);
 				//ResultSet rs = stmt.executeQuery();
@@ -117,21 +119,21 @@ public class UserManager {
 				    	result = new User(rs.getString("name"));
 					}
 				    
-				} catch (SQLException e ) {
+				} catch (SQLException e) {
 					throw e;
 					
 				} finally {
 					rs.close();
 				} 
 			    
-			} catch (SQLException e ) {
+			} catch (SQLException e) {
 				throw e;
 				
 			} finally {
 				stmt.close();
 			}
 			
-		} catch (SQLException e ) {
+		} catch (SQLException e) {
 			throw e;
 			
 		} finally {
@@ -156,14 +158,14 @@ public class UserManager {
 				stmt.setString(1, user.getName());
 				stmt.execute();
 			    
-			} catch (SQLException e ) {
+			} catch (SQLException e) {
 				throw e;
 				
 			} finally {
 				stmt.close();
 			}
 			
-		} catch (SQLException e ) {
+		} catch (SQLException e) {
 			throw e;
 			
 		} finally {
