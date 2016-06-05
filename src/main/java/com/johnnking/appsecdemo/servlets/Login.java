@@ -30,7 +30,7 @@ public class Login extends HttpServlet {
 		if ((username != null) && (! username.equals("")) && (password != null) && (! password.equals(""))) {
 			
 			if (destination == null) {
-				destination = "";
+				destination = "/appsecdemo/";
 			}
 			
 			try {
@@ -38,7 +38,7 @@ public class Login extends HttpServlet {
 					if (username.equals(password)) {
 						request.getSession(true).setAttribute("username", username);
 						
-						response.sendRedirect("/appsecdemo/" + destination);
+						response.sendRedirect(destination);
 						return;
 					}
 				}
