@@ -25,13 +25,13 @@ public class CommentManager {
 		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
 
 		try {
-			PreparedStatement stmt = conn.prepareStatement("CREATE TABLE IF NOT EXISTS comments (comment varchar(255))");						
+			PreparedStatement stmt = conn.prepareStatement("CREATE TABLE IF NOT EXISTS comments (comment varchar(255), username varchar(255))");						
 			
 			try {
 				stmt.execute();
 				
 				if (CommentManager.getComments().size() == 0) {
-					CommentManager.addComment(new Comment("Hello!"));
+					CommentManager.addComment(new Comment("Hello!", "John"));
 				}
 			    
 			} catch (SQLException e ) {
@@ -66,7 +66,7 @@ public class CommentManager {
 			
 				try {
 				    while (rs.next()) {
-				    	result.add(new Comment(rs.getString("comment")));
+				    	result.add(new Comment(rs.getString("comment"), rs.getString("username")));
 			    	}
 				    
 				} catch (SQLException e ) {
@@ -106,7 +106,7 @@ public class CommentManager {
 			//PreparedStatement stmt = conn.prepareStatement("INSERT INTO comments VALUES ?");
 			
 			try {
-				ResultSet rs = stmt.executeQuery("INSERT INTO comments VALUES '" + comment.getComment() + "';");
+				ResultSet rs = stmt.executeQuery("INSERT INTO comments VALUES ('" + comment.getComment() + "', '" + comment.getUsername() + "');");
 				//stmt.setString(1, comment.getComment());
 				//stmt.execute();
 			    

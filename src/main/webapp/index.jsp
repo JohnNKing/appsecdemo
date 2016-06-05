@@ -21,7 +21,23 @@
 <h2>Comments</h2>
 <ul class="list-group">
 	<% for (Comment comment : comments) { %>
-		<li class="list-group-item"><%= comment.getComment() %><% //= StringEscapeUtils.escapeHtml4(comment.getComment()) %></li>
+		<% if (comment.getUsername().equals("null")) { %>
+			
+			<li class="list-group-item">
+				<%= comment.getComment() %>
+				<% //= StringEscapeUtils.escapeHtml4(comment.getComment()) %>
+			</li>
+			
+		<% } else { %>
+			
+			<li class="list-group-item active">
+				<%= comment.getComment() %>
+				<span class="label">
+					<%= comment.getUsername() %>
+				</span>
+			</li>
+			
+		<% } %>
 	<% } %>
 </ul>
 
@@ -34,7 +50,6 @@
 
 </div>
 <div class="col-xs-12 col-sm-3">
-
 
 <h4>Moderators</h4>
 <ul class="list-group">
