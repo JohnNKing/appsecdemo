@@ -14,11 +14,11 @@
 		<label class="sr-only" for="username">Password</label>
 		<input type="password" id="password" name="password" class="form-control" placeholder="Password">
 	</div>
+	
 	<%
 	String destination = request.getParameter("destination");
 	if (destination != null) { %>
-		<% // http://localhost:8080/appsecdemo/login.jsp?destination=%22%3E%3Cscript%3Ealert(1)%3C%2Fscript%3E%3Cb%20%22 %>
-		<input type="hidden" name="destination" value="<%= destination %><% //= destination.replaceAll("\"", "&quot;") %>">
+		<input type="hidden" name="destination" value="<%= StringEscapeUtils.escapeHtml4(destination) %>">
 	<% } %>
 	<button type="submit" class="btn btn-default">Sign In</button>
 </form>

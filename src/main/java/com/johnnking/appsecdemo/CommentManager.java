@@ -102,6 +102,8 @@ public class CommentManager {
 		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
 
 		try {
+			
+			// A1 Injection
 			Statement stmt = conn.createStatement();
 			//PreparedStatement stmt = conn.prepareStatement("INSERT INTO comments VALUES ?");
 			

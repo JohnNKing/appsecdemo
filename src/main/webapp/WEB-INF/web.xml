@@ -43,6 +43,7 @@
 		<servlet-class>com.johnnking.appsecdemo.servlets.AddComment</servlet-class>
 	</servlet>
 
+	<!-- A8 Cross-Site Request Forgery (CSRF) -->
 	<!--
 	<listener>
 		<listener-class>org.owasp.csrfguard.CsrfGuardServletContextListener</listener-class>

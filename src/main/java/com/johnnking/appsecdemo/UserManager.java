@@ -104,15 +104,11 @@ public class UserManager {
 		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
 
 		try {
-			Statement stmt = conn.createStatement();
-			//PreparedStatement stmt = conn.prepareStatement("select * from users where name = ?");
+			PreparedStatement stmt = conn.prepareStatement("select * from users where name = ?");
 			
 			try {
-				//x', 'x'); DELETE FROM comments; insert into comments values('Bwhahahahahah','Pwned'); --
-								   
-				ResultSet rs = stmt.executeQuery("select * from users where name = '" + name + "';");
-				//stmt.setString(1, name);
-				//ResultSet rs = stmt.executeQuery();
+				stmt.setString(1, name);
+				ResultSet rs = stmt.executeQuery();
 			
 				try {
 					if (rs.next()) {
