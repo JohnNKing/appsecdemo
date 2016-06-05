@@ -17,7 +17,8 @@
 	<%
 	String destination = request.getParameter("destination");
 	if (destination != null) { %>
-		<input type="hidden" name="destination" value="<%= destination.replaceAll("\"", "&quot;") %>">
+		<% // http://localhost:8080/appsecdemo/login.jsp?destination=%22%3E%3Cscript%3Ealert(1)%3C%2Fscript%3E%3Cb%20%22 %>
+		<input type="hidden" name="destination" value="<%= destination %><% //= destination.replaceAll("\"", "&quot;") %>">
 	<% } %>
 	<button type="submit" class="btn btn-default">Sign In</button>
 </form>
