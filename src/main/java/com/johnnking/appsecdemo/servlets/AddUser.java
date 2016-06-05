@@ -1,4 +1,4 @@
-package com.johnnking.csrf;
+package com.johnnking.appsecdemo.servlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -7,6 +7,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.johnnking.appsecdemo.User;
+import com.johnnking.appsecdemo.UserManager;
 
 
 public class AddUser extends HttpServlet {
@@ -17,7 +20,8 @@ public class AddUser extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+		//response.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+		doPost(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,7 +44,7 @@ public class AddUser extends HttpServlet {
 				}
 			}
 			
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("/appsecdemo/");
 		}
 	}
 }

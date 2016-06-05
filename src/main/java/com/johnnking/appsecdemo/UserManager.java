@@ -1,17 +1,18 @@
-package com.johnnking.csrf;
+package com.johnnking.appsecdemo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserManager {
 
 	public final static String DB_DRIVER= "org.hsqldb.jdbcDriver";
-	public final static String DB_CONN = "jdbc:hsqldb:mem:csrf-jee-example-db";
+	public final static String DB_CONN = "jdbc:hsqldb:mem:appsecdemo";
 	public final static String DB_USER = "SA";
 	public final static String DB_PASS = "";
 	
@@ -33,14 +34,14 @@ public class UserManager {
 					UserManager.addUser(new User("John"));
 				}
 			    
-			} catch (SQLException e ) {
+			} catch (SQLException e) {
 				throw e;
 				
 			} finally {
 				stmt.close();
 			}
 			
-		} catch (SQLException e ) {
+		} catch (SQLException e) {
 			throw e;
 			
 		} finally {
@@ -68,21 +69,21 @@ public class UserManager {
 				    	result.add(new User(rs.getString("name")));
 			    	}
 				    
-				} catch (SQLException e ) {
+				} catch (SQLException e) {
 					throw e;
 					
 				} finally {
 					rs.close();
 				} 
 			    
-			} catch (SQLException e ) {
+			} catch (SQLException e) {
 				throw e;
 				
 			} finally {
 				stmt.close();
 			}
 			
-		} catch (SQLException e ) {
+		} catch (SQLException e) {
 			throw e;
 			
 		} finally {
@@ -103,32 +104,36 @@ public class UserManager {
 		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
 
 		try {
-			PreparedStatement stmt = conn.prepareStatement("select * from users where name = ?");
+			Statement stmt = conn.createStatement();
+			//PreparedStatement stmt = conn.prepareStatement("select * from users where name = ?");
 			
 			try {
-				stmt.setString(1, name);
-				ResultSet rs = stmt.executeQuery();
+				//x', 'x'); DELETE FROM comments; insert into comments values('Bwhahahahahah','Pwned'); --
+								   
+				ResultSet rs = stmt.executeQuery("select * from users where name = '" + name + "';");
+				//stmt.setString(1, name);
+				//ResultSet rs = stmt.executeQuery();
 			
 				try {
 					if (rs.next()) {
 				    	result = new User(rs.getString("name"));
 					}
 				    
-				} catch (SQLException e ) {
+				} catch (SQLException e) {
 					throw e;
 					
 				} finally {
 					rs.close();
 				} 
 			    
-			} catch (SQLException e ) {
+			} catch (SQLException e) {
 				throw e;
 				
 			} finally {
 				stmt.close();
 			}
 			
-		} catch (SQLException e ) {
+		} catch (SQLException e) {
 			throw e;
 			
 		} finally {
@@ -153,14 +158,14 @@ public class UserManager {
 				stmt.setString(1, user.getName());
 				stmt.execute();
 			    
-			} catch (SQLException e ) {
+			} catch (SQLException e) {
 				throw e;
 				
 			} finally {
 				stmt.close();
 			}
 			
-		} catch (SQLException e ) {
+		} catch (SQLException e) {
 			throw e;
 			
 		} finally {

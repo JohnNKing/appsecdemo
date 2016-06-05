@@ -1,4 +1,4 @@
-package com.johnnking.csrf;
+package com.johnnking.appsecdemo.servlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -7,6 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.johnnking.appsecdemo.UserManager;
 
 
 public class Login extends HttpServlet {
@@ -23,15 +25,20 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		String destination = request.getParameter("destination");
 		
 		if ((username != null) && (! username.equals("")) && (password != null) && (! password.equals(""))) {
+			
+			if (destination == null) {
+				destination = "/appsecdemo/";
+			}
 			
 			try {
 				if (UserManager.getUser(username) != null) {
 					if (username.equals(password)) {
 						request.getSession(true).setAttribute("username", username);
 						
-						response.sendRedirect("userForm.jsp");
+						response.sendRedirect(destination);
 						return;
 					}
 				}

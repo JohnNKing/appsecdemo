@@ -1,4 +1,4 @@
-package com.johnnking.csrf;
+package com.johnnking.appsecdemo;
 
 public class User {
 
