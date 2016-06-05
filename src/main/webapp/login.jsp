@@ -17,7 +17,7 @@
 	<%
 	String destination = request.getParameter("destination");
 	if (destination != null) { %>
-		<input type="hidden" name="destination" value="<%= destination %>">
+		<input type="hidden" name="destination" value="<%= destination.replaceAll("\"", "&quot;") %>">
 	<% } %>
 	<button type="submit" class="btn btn-default">Sign In</button>
 </form>

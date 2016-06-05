@@ -28,8 +28,9 @@
 			
 			<li class="list-group-item active">
 				<%= comment.getComment() %>
+				<% //= StringEscapeUtils.escapeHtml4(comment.getComment()) %>
 				<span class="label">
-					<%= comment.getUsername() %>
+					<%= StringEscapeUtils.escapeHtml4(comment.getUsername()) %>
 				</span>
 			</li>
 			
