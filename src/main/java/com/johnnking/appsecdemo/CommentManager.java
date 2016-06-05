@@ -1,4 +1,4 @@
-package com.johnnking.csrf;
+package com.johnnking.appsecdemo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +12,7 @@ import java.util.List;
 public class CommentManager {
 
 	public final static String DB_DRIVER= "org.hsqldb.jdbcDriver";
-	public final static String DB_CONN = "jdbc:hsqldb:mem:csrf-jee-example-db";
+	public final static String DB_CONN = "jdbc:hsqldb:mem:appsecdemo";
 	public final static String DB_USER = "SA";
 	public final static String DB_PASS = "";
 	

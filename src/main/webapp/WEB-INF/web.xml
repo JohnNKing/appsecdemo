@@ -10,7 +10,7 @@
 	
 	<servlet>
 		<servlet-name>Login</servlet-name>
-		<servlet-class>com.johnnking.csrf.Login</servlet-class>
+		<servlet-class>com.johnnking.appsecdemo.servlets.Login</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
@@ -20,7 +20,7 @@
 	
 	<servlet>
 		<servlet-name>AddUser</servlet-name>
-		<servlet-class>com.johnnking.csrf.AddUser</servlet-class>
+		<servlet-class>com.johnnking.appsecdemo.servlets.AddUser</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
@@ -30,7 +30,7 @@
 	
 	<servlet>
 		<servlet-name>AddComment</servlet-name>
-		<servlet-class>com.johnnking.csrf.AddComment</servlet-class>
+		<servlet-class>com.johnnking.appsecdemo.servlets.AddComment</servlet-class>
 	</servlet>
 
 	<!--

@@ -8,14 +8,14 @@ if (session.getAttribute("username") == null) {
 <%@include file="/WEB-INF/include/header.jsp" %>
 
 <div class="panel-heading">
-	<h2>User Form</h2>
+	<h2>Add Moderator</h2>
 </div>
 
-<form id="form" action="http://localhost:8080/csrf-jee-example/AddUser" method="POST" class="navbar-form navbar-left">
+<form id="form" action="/appsecdemo/AddUser" method="POST" class="navbar-form navbar-left">
 	<div class="form-group">
 		<input type="text" name="name" class="form-control" placeholder="username">
 	</div>
-	<button type="submit" class="btn btn-default">Add User</button>
+	<button type="submit" class="btn btn-default">Add Moderator</button>
 </form>
 
 <%@include file="/WEB-INF/include/footer.jsp" %>

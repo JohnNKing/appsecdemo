@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="java.util.List, org.apache.commons.lang3.StringEscapeUtils, com.johnnking.csrf.CommentManager, com.johnnking.csrf.Comment, com.johnnking.csrf.UserManager, com.johnnking.csrf.User"%>
+	import="java.util.List, org.apache.commons.lang3.StringEscapeUtils, com.johnnking.appsecdemo.CommentManager, com.johnnking.appsecdemo.Comment, com.johnnking.appsecdemo.UserManager, com.johnnking.appsecdemo.User"%>
 <%@include file="/WEB-INF/include/header.jsp" %>
 
 <%
@@ -41,7 +41,7 @@
 	<% } %>
 </ul>
 
-<form id="form" action="http://localhost:8080/csrf-jee-example/AddComment" method="POST" class="navbar-form navbar-left">
+<form id="form" action="AddComment" method="POST" class="navbar-form navbar-left">
 	<div class="form-group">
 		<input type="text" name="comment" class="form-control" placeholder="your comment">
 	</div>
