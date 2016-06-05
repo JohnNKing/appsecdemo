@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"
+	import="org.apache.commons.lang3.StringEscapeUtils" %>
 <%
 if (session.getAttribute("username") == null) {
-	response.sendRedirect("login.jsp");
+	response.sendRedirect("login.jsp?destination=addMod.jsp");
 }
 %>
 <%@include file="/WEB-INF/include/header.jsp" %>

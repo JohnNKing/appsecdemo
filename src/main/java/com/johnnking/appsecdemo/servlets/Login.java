@@ -25,15 +25,20 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		String destination = request.getParameter("destination");
 		
 		if ((username != null) && (! username.equals("")) && (password != null) && (! password.equals(""))) {
+			
+			if (destination == null) {
+				destination = "";
+			}
 			
 			try {
 				if (UserManager.getUser(username) != null) {
 					if (username.equals(password)) {
 						request.getSession(true).setAttribute("username", username);
 						
-						response.sendRedirect("addMod.jsp");
+						response.sendRedirect("/appsecdemo/" + destination);
 						return;
 					}
 				}

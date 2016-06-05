@@ -21,12 +21,24 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.jsp">Application Security Demo</a>
+				<a class="navbar-brand" href="/appsecdemo/">Application Security Demo</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="/appsecdemo/index.jsp">Comments</a></li>
+					<li><a href="/appsecdemo/">Comments</a></li>
 					<li><a href="/appsecdemo/addMod.jsp">Add Moderator</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<% if (session.getAttribute("username") == null) { %>
+						<li><a href="/appsecdemo/login.jsp">Login</a></li>
+					<% } else { %>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= StringEscapeUtils.escapeHtml4((String) session.getAttribute("username")) %> <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="/appsecdemo/Logout">Logout</a></li>
+							</ul> 
+						</li>
+					<% } %>
 				</ul>
 			</div>
 		</div>

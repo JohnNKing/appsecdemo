@@ -11,10 +11,6 @@
 	List<User> users = UserManager.getUsers();
 %>
 
-<% if (session.getAttribute("username") != null) { %>
-	Hello <%= StringEscapeUtils.escapeHtml4((String) session.getAttribute("username")) %><br><br>
-<% } %>
-
 <div class="row">
 <div class="col-xs-12 col-sm-9">
 
