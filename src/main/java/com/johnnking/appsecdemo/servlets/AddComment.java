@@ -35,7 +35,7 @@ public class AddComment extends HttpServlet {
 				if (session.getAttribute("username") == null) {
 					CommentManager.addComment(new Comment(comment));
 				} else {
-					CommentManager.addComment(new Comment(comment, session.getAttribute("username").toString()));
+					CommentManager.addComment(new Comment(comment, (String) session.getAttribute("username")));
 				}
 				
 					
@@ -47,6 +47,6 @@ public class AddComment extends HttpServlet {
 			}
 		}
 		
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("/appsecdemo/");
 	}
 }
