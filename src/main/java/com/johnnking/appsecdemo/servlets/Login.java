@@ -39,6 +39,13 @@ public class Login extends HttpServlet {
 							destination = "/appsecdemo/";
 						}
 						response.sendRedirect(destination);
+						/*
+						String destination = "/appsecdemo/";
+						if ("addMod".equals(request.getParameter("destination"))) {
+							destination += "addMod.jsp";
+						}
+						response.sendRedirect(destination);
+						*/
 						
 						return;
 					}
