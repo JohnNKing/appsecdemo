@@ -17,13 +17,13 @@
 <h2>Comments</h2>
 <ul class="list-group">
 	<% for (Comment comment : comments) { %>
-		<li class="list-group-item<% if (! comment.getUsername().equals("null")) { %> active<% } %>">
+		<li class="list-group-item<% if ((comment.getUsername() != null) && (! comment.getUsername().equals(""))) { %> active<% } %>">
 
 			<% // A3 Cross-Site Scripting (XSS) %>
 			<%= comment.getComment() %>
 			<% //= StringEscapeUtils.escapeHtml4(comment.getComment()) %>
 			
-			<% if (! comment.getUsername().equals("null")) { %>
+			<% if ((comment.getUsername() != null) && (! comment.getUsername().equals(""))) { %>
 				<span class="label">
 					<%= StringEscapeUtils.escapeHtml4(comment.getUsername()) %>
 				</span>

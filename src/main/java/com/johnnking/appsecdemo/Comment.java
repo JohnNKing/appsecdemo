@@ -3,7 +3,7 @@ package com.johnnking.appsecdemo;
 public class Comment {
 
 	private String comment;
-	private String username = null;
+	private String username = "";
 
 	public Comment() {
 		super();

@@ -29,10 +29,6 @@ public class CommentManager {
 			
 			try {
 				stmt.execute();
-				
-				if (CommentManager.getComments().size() == 0) {
-					CommentManager.addComment(new Comment("Hello!", "John"));
-				}
 			    
 			} catch (SQLException e) {
 				throw e;
@@ -105,11 +101,12 @@ public class CommentManager {
 			
 			// A1 Injection
 			Statement stmt = conn.createStatement();
-			//PreparedStatement stmt = conn.prepareStatement("INSERT INTO comments VALUES ?");
+			//PreparedStatement stmt = conn.prepareStatement("INSERT INTO comments VALUES (?, ?)");
 			
 			try {
 				ResultSet rs = stmt.executeQuery("INSERT INTO comments VALUES ('" + comment.getComment() + "', '" + comment.getUsername() + "');");
 				//stmt.setString(1, comment.getComment());
+				//stmt.setString(2, comment.getUsername());
 				//stmt.execute();
 			    
 			} catch (SQLException e) {
