@@ -1,36 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+<web-app>
+	<display-name>App Sec Demo</display-name>
 
-	<display-name>CSRF JEE Example</display-name>
-	
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>appsecdemo</web-resource-name>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>com.johnnking.appsecdemo.servlets.Login</servlet-class>
+	</servlet>
+
 	<servlet-mapping>
 		<servlet-name>Login</servlet-name>
 		<url-pattern>/Login</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>Login</servlet-name>
-		<servlet-class>com.johnnking.appsecdemo.servlets.Login</servlet-class>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>com.johnnking.appsecdemo.servlets.Logout</servlet-class>
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>Logout</servlet-name>
 		<url-pattern>/Logout</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
-		<servlet-name>Logout</servlet-name>
-		<servlet-class>com.johnnking.appsecdemo.servlets.Logout</servlet-class>
+		<servlet-name>AddUser</servlet-name>
+		<servlet-class>com.johnnking.appsecdemo.servlets.AddUser</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
 		<servlet-name>AddUser</servlet-name>
 		<url-pattern>/AddUser</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
-		<servlet-name>AddUser</servlet-name>
-		<servlet-class>com.johnnking.appsecdemo.servlets.AddUser</servlet-class>
+		<servlet-name>AddComment</servlet-name>
+		<servlet-class>com.johnnking.appsecdemo.servlets.AddComment</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
@@ -38,11 +52,6 @@
 		<url-pattern>/AddComment</url-pattern>
 	</servlet-mapping>
 	
-	<servlet>
-		<servlet-name>AddComment</servlet-name>
-		<servlet-class>com.johnnking.appsecdemo.servlets.AddComment</servlet-class>
-	</servlet>
-
 	<!-- A8 Cross-Site Request Forgery (CSRF) -->
 	<!--
 	<listener>
@@ -78,6 +87,5 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	-->
-	
 </web-app>
 
