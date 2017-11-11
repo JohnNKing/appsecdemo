@@ -30,7 +30,8 @@ public class Login extends HttpServlet {
 			
 			try {
 				if (UserManager.getUser(username) != null) {
-					if (username.equals(password)) {
+					if (username.equals(password)) { // Yes, this is intentionally insecure
+						request.getSession(true).invalidate();
 						request.getSession(true).setAttribute("username", username);
 						
 						// A10 Unvalidated Redirects and Forwards
