@@ -7,9 +7,9 @@
 	<meta name="description" content="Simple Java webapp for demonstrating common application security vulnerabilities.">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<link rel="stylesheet" href="/appsecdemo/css/bootstrap.min.css">
-	<link rel="stylesheet"href="/appsecdemo/css/bootstrap-theme.min.css">
-	<link rel="stylesheet"href="/appsecdemo/css/main.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
@@ -23,21 +23,21 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/appsecdemo/">Application Security Demo</a>
+				<a class="navbar-brand" href=".">Application Security Demo</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="/appsecdemo/">Comments</a></li>
-					<li><a href="/appsecdemo/addMod.jsp">Add Moderator</a></li>
+					<li><a href=".">Comments</a></li>
+					<li><a href="addMod.jsp">Add Moderator</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<% if (session.getAttribute("username") == null) { %>
-						<li><a href="/appsecdemo/login.jsp">Sign In</a></li>
+						<li><a href="login.jsp">Sign In</a></li>
 					<% } else { %>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= StringEscapeUtils.escapeHtml4((String) session.getAttribute("username")) %> <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/appsecdemo/Logout">Sign Out</a></li>
+								<li><a href="Logout">Sign Out</a></li>
 							</ul> 
 						</li>
 					<% } %>

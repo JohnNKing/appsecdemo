@@ -12,7 +12,7 @@ if (session.getAttribute("username") == null) {
 
 <h2>Add Moderator</h2>
 
-<form id="form" action="/appsecdemo/AddUser" method="POST" class="form-inline">
+<form id="form" action="AddUser" method="POST" class="form-inline">
 	<div class="form-group">
 		<label class="sr-only" for="username">Username</label>
 		<input type="text" id="username" name="name" class="form-control" placeholder="Username">

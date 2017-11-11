@@ -46,7 +46,7 @@ public class AddUser extends HttpServlet {
 				}
 			}
 			
-			response.sendRedirect("/appsecdemo/");
+			response.sendRedirect(request.getContextPath());
 		}
 	}
 }
