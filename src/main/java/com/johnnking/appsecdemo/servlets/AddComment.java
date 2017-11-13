@@ -47,6 +47,6 @@ public class AddComment extends HttpServlet {
 			}
 		}
 		
-		response.sendRedirect(request.getContextPath());
+		response.sendRedirect(request.getContextPath() + "/");
 	}
 }

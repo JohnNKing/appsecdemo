@@ -20,7 +20,7 @@ public class Logout extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession(true).invalidate();
-		response.sendRedirect(request.getContextPath());
+		response.sendRedirect(request.getContextPath() + "/");
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

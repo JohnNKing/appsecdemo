@@ -37,11 +37,11 @@ public class Login extends HttpServlet {
 						// A10 Unvalidated Redirects and Forwards
 						String destination = request.getParameter("destination");
 						if (destination == null) {
-							destination = request.getContextPath();
+							destination = request.getContextPath() + "/";
 						}
 						response.sendRedirect(destination);
 						/*
-						String destination = request.getContextPath();
+						String destination = request.getContextPath() + "/";
 						if ("addMod".equals(request.getParameter("destination"))) {
 							destination += "addMod.jsp";
 						}

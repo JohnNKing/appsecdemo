@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="org.apache.commons.lang3.StringEscapeUtils" %>
+	import="java.net.URLEncoder, org.apache.commons.lang3.StringEscapeUtils" %>
 <%
 if (session.getAttribute("username") == null) {
 	// A10 Unvalidated Redirects and Forwards
-	response.sendRedirect("login.jsp?destination=%2Fappsecdemo%2FaddMod.jsp");
+	response.sendRedirect("login.jsp?destination=" + URLEncoder.encode(request.getContextPath() + "/addMod.jsp", "UTF-8"));
 	//response.sendRedirect("login.jsp?destination=addMod");
 }
 %>
