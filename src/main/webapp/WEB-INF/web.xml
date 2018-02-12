@@ -2,21 +2,14 @@
 <web-app>
 	<display-name>App Sec Demo</display-name>
 
-	<security-constraint>
-		<web-resource-collection>
-			<web-resource-name>appsecdemo</web-resource-name>
-			<url-pattern>/*</url-pattern>
-		</web-resource-collection>
-		<user-data-constraint>
-			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
-		</user-data-constraint>
-	</security-constraint>
+	<listener>
+	<listener-class>com.johnnking.appsecdemo.Listener</listener-class>
+	</listener>
 
 	<servlet>
 		<servlet-name>Login</servlet-name>
 		<servlet-class>com.johnnking.appsecdemo.servlets.Login</servlet-class>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>Login</servlet-name>
 		<url-pattern>/Login</url-pattern>
@@ -26,7 +19,6 @@
 		<servlet-name>Logout</servlet-name>
 		<servlet-class>com.johnnking.appsecdemo.servlets.Logout</servlet-class>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>Logout</servlet-name>
 		<url-pattern>/Logout</url-pattern>
@@ -36,7 +28,6 @@
 		<servlet-name>AddUser</servlet-name>
 		<servlet-class>com.johnnking.appsecdemo.servlets.AddUser</servlet-class>
 	</servlet>
-	
 	<servlet-mapping>
 		<servlet-name>AddUser</servlet-name>
 		<url-pattern>/AddUser</url-pattern>
@@ -46,12 +37,12 @@
 		<servlet-name>AddComment</servlet-name>
 		<servlet-class>com.johnnking.appsecdemo.servlets.AddComment</servlet-class>
 	</servlet>
-	
 	<servlet-mapping>
 		<servlet-name>AddComment</servlet-name>
 		<url-pattern>/AddComment</url-pattern>
 	</servlet-mapping>
 	
+
 	<servlet>
 		<servlet-name>jersey-serlvet</servlet-name>
 		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
@@ -61,45 +52,36 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>jersey-serlvet</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
 
-	<!-- A8 Cross-Site Request Forgery (CSRF) -->
-	<!--
+
 	<listener>
 		<listener-class>org.owasp.csrfguard.CsrfGuardServletContextListener</listener-class>
 	</listener>
-	
 	<listener>
 		<listener-class>org.owasp.csrfguard.CsrfGuardHttpSessionListener</listener-class>
 	</listener>
-	
 	<context-param>
 		<param-name>Owasp.CsrfGuard.Config</param-name>
 		<param-value>WEB-INF/Owasp.CsrfGuard.properties</param-value>
 	</context-param>
-	
 	<servlet>
 		<servlet-name>JavaScriptServlet</servlet-name>
 		<servlet-class>org.owasp.csrfguard.servlet.JavaScriptServlet</servlet-class>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>JavaScriptServlet</servlet-name>
 		<url-pattern>/JavaScriptServlet</url-pattern>
 	</servlet-mapping>
-	
 	<filter>
 		<filter-name>CSRFGuard</filter-name>
 		<filter-class>org.owasp.csrfguard.CsrfGuardFilter</filter-class>
 	</filter>
-	
 	<filter-mapping>
 		<filter-name>CSRFGuard</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	-->
 </web-app>

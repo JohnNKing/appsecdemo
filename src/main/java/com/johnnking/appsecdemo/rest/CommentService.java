@@ -29,7 +29,6 @@ public class CommentService {
         Gson gson = new Gson();
 
         try {
-            CommentManager.init();
             String json = gson.toJson(CommentManager.getComments());
             result = Response.status(200).entity(json).build();
 

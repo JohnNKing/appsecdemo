@@ -4,10 +4,7 @@
 <%@include file="/WEB-INF/include/header.jsp" %>
 
 <%
-	CommentManager.init();
 	List<Comment> comments = CommentManager.getComments();
-
-	UserManager.init();
 	List<User> users = UserManager.getUsers();
 %>
 
