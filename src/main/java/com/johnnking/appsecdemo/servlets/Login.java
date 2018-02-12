@@ -31,22 +31,13 @@ public class Login extends HttpServlet {
 			try {
 				if (UserManager.getUser(username) != null) {
 					if (username.equals(password)) { // Yes, this is intentionally insecure
-						request.getSession(true).invalidate();
 						request.getSession(true).setAttribute("username", username);
 						
-						// A10 Unvalidated Redirects and Forwards
 						String destination = request.getParameter("destination");
 						if (destination == null) {
 							destination = request.getContextPath() + "/";
 						}
 						response.sendRedirect(destination);
-						/*
-						String destination = request.getContextPath() + "/";
-						if ("addMod".equals(request.getParameter("destination"))) {
-							destination += "addMod.jsp";
-						}
-						response.sendRedirect(destination);
-						*/
 						
 						return;
 					}

@@ -20,10 +20,7 @@ public class AddUser extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		// A8 Cross-Site Request Forgery (CSRF)
 		doPost(request, response);
-		//response.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

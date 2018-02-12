@@ -31,13 +31,7 @@ public class AddComment extends HttpServlet {
 		if ((comment != null) && (! comment.equals(""))) {
 				
 			try {
-				
-				if (session.getAttribute("username") == null) {
-					CommentManager.addComment(new Comment(comment));
-				} else {
-					CommentManager.addComment(new Comment(comment, (String) session.getAttribute("username")));
-				}
-				
+				CommentManager.addComment(new Comment(comment, (String) session.getAttribute("username")));
 					
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();

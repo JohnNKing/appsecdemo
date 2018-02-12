@@ -15,14 +15,11 @@
 <ul class="list-group">
 	<% for (Comment comment : comments) { %>
 		<li class="list-group-item<% if ((comment.getUsername() != null) && (! comment.getUsername().equals(""))) { %> active<% } %>">
-
-			<% // A3 Cross-Site Scripting (XSS) %>
 			<%= comment.getComment() %>
-			<% //= StringEscapeUtils.escapeHtml4(comment.getComment()) %>
 			
 			<% if ((comment.getUsername() != null) && (! comment.getUsername().equals(""))) { %>
 				<span class="label">
-					<%= StringEscapeUtils.escapeHtml4(comment.getUsername()) %>
+					<%= comment.getUsername() %>
 				</span>
 			</li>
 			<% } %>
@@ -43,7 +40,7 @@
 <h4>Moderators</h4>
 <ul class="list-group">
 	<% for (User user : users) { %>
-		<li class="list-group-item"><%= StringEscapeUtils.escapeHtml4(user.getName()) %></li>
+		<li class="list-group-item"><%= user.getName() %></li>
 	<% } %>
 </ul>
 

@@ -19,7 +19,7 @@ public class Logout extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getSession(true).invalidate();
+		request.getSession(true).setAttribute("username", null);
 		response.sendRedirect(request.getContextPath() + "/");
 	}
 	

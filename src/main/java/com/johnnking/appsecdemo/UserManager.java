@@ -25,13 +25,13 @@ public class UserManager {
 		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
 
 		try {
-			PreparedStatement stmt = conn.prepareStatement("CREATE TABLE IF NOT EXISTS users (name varchar(255))");						
+			Statement stmt = conn.createStatement();						
 			
 			try {
-				stmt.execute();
+				stmt.execute("CREATE TABLE IF NOT EXISTS users (name varchar(255))");
 				
 				if (UserManager.getUsers().size() == 0) {
-					UserManager.addUser(new User("John"));
+					UserManager.addUser(new User("Admin"));
 				}
 			    
 			} catch (SQLException e) {
@@ -59,10 +59,10 @@ public class UserManager {
 		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
 
 		try {
-			PreparedStatement stmt = conn.prepareStatement("select * from users");
+			Statement stmt = conn.createStatement();
 			
 			try {
-				ResultSet rs = stmt.executeQuery();
+				ResultSet rs = stmt.executeQuery("SELECT * FROM users");
 			
 				try {
 				    while (rs.next()) {
@@ -104,11 +104,10 @@ public class UserManager {
 		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
 
 		try {
-			PreparedStatement stmt = conn.prepareStatement("select * from users where name = ?");
+			Statement stmt = conn.createStatement();
 			
 			try {
-				stmt.setString(1, name);
-				ResultSet rs = stmt.executeQuery();
+				ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE name = '" + name + "'");
 			
 				try {
 					if (rs.next()) {
@@ -148,11 +147,10 @@ public class UserManager {
 		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
 
 		try {
-			PreparedStatement stmt = conn.prepareStatement("INSERT INTO users VALUES ?");
+			Statement stmt = conn.createStatement();
 			
 			try {
-				stmt.setString(1, user.getName());
-				stmt.execute();
+				stmt.execute("INSERT INTO users VALUES '" + user.getName() + "'");
 			    
 			} catch (SQLException e) {
 				throw e;

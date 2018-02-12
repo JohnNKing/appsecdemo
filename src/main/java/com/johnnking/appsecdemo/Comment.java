@@ -17,7 +17,10 @@ public class Comment {
 	public Comment(String comment, String username) {
 		super();
 		this.comment = comment;
-		this.username = username;
+
+		if (username != null) {
+			this.username = username;
+		}
 	}
 
 	public String getComment() {
@@ -33,6 +36,10 @@ public class Comment {
 	}
 
 	public void setUsername(String username) {
-		this.username = username;
+		if (username != null) {
+			this.username = username;
+		} else {
+			username = "";
+		}
 	}
 }

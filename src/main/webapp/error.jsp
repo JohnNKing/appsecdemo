@@ -12,11 +12,7 @@ if (error == null) {
 <div class="alert alert-danger" role="alert">
 	<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 	<span class="sr-only">Error:</span> 
-
-	<% // A3 Cross-Site Scripting (XSS) %>
 	<%= error %>
-	<% //= StringEscapeUtils.escapeHtml4(error) %>
-	
 </div>
 
 <%@include file="/WEB-INF/include/footer.jsp" %>

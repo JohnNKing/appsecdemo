@@ -3,9 +3,7 @@
 	import="java.net.URLEncoder, org.apache.commons.lang3.StringEscapeUtils" %>
 <%
 if (session.getAttribute("username") == null) {
-	// A10 Unvalidated Redirects and Forwards
 	response.sendRedirect("login.jsp?destination=" + URLEncoder.encode(request.getContextPath() + "/addMod.jsp", "UTF-8"));
-	//response.sendRedirect("login.jsp?destination=addMod");
 }
 %>
 <%@include file="/WEB-INF/include/header.jsp" %>

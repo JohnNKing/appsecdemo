@@ -35,7 +35,7 @@
 						<li><a href="login.jsp">Sign In</a></li>
 					<% } else { %>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= StringEscapeUtils.escapeHtml4((String) session.getAttribute("username")) %> <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= (String) session.getAttribute("username") %> <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="Logout">Sign Out</a></li>
 							</ul> 
