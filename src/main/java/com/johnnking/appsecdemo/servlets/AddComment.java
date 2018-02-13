@@ -32,15 +32,12 @@ public class AddComment extends HttpServlet {
 				
 			try {
 				CommentManager.addComment(new Comment(comment, (String) session.getAttribute("username")));
-					
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-					
-			} catch (SQLException e) {
+	
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		
+
 		response.sendRedirect(request.getContextPath() + "/");
 	}
 }

@@ -24,26 +24,18 @@ public class AddUser extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (request.getSession(true).getAttribute("username") == null) {
-			response.sendRedirect("login.jsp");
+		String name = request.getParameter("name");
+		
+		if ((name != null) && (! name.equals(""))) {
 			
-		} else {
-			String name = request.getParameter("name");
-			
-			if ((name != null) && (! name.equals(""))) {
-				
-				try {
-					UserManager.addUser(new User(name));
-					
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-					
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+			try {
+				UserManager.addUser(new User(name));
+
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-			
-			response.sendRedirect(request.getContextPath() + "/");
 		}
+
+		response.sendRedirect(request.getContextPath() + "/");
 	}
 }

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Application Security Demo</title>
-	<meta name="description" content="Simple Java webapp for demonstrating common application security vulnerabilities.">
+	<meta name="description" content="Simple Java webapp for demonstrating application security vulnerabilities.">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -23,11 +23,11 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href=".">Application Security Demo</a>
+				<a class="navbar-brand" href="./">Application Security Demo</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href=".">Comments</a></li>
+					<li><a href="./">Comments</a></li>
 					<li><a href="addMod.jsp">Add Moderator</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
