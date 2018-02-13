@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.Path;
@@ -64,6 +65,26 @@ public class CommentService {
 
 		} else {
             result = Response.status(400).build();
+        }
+
+        return result;
+	}
+
+    @DELETE
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public Response deleteComment(@Context HttpServletRequest request, @FormParam("id") String id) {
+		Response result;
+        HttpSession session = request.getSession(true);
+
+        try {
+            int numericId = Integer.parseInt(id);
+            CommentManager.deleteComment(numericId);
+            result = Response.status(200).build();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            result = Response.status(500).build();
         }
 
         return result;

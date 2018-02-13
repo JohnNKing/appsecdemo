@@ -28,7 +28,7 @@ public class CommentManager {
 			Statement stmt = conn.createStatement();						
 			
 			try {
-				stmt.execute("CREATE TABLE IF NOT EXISTS comments (comment varchar(65535), username varchar(255))");
+				stmt.execute("CREATE TABLE IF NOT EXISTS comments (id IDENTITY, comment VARCHAR(65535), username VARCHAR(255))");
 			    
 				if (CommentManager.getComments().size() == 0) {
 					CommentManager.addComment(new Comment("Welcome!", "Admin"));
@@ -67,7 +67,7 @@ public class CommentManager {
 			
 				try {
 				    while (rs.next()) {
-				    	result.add(new Comment(rs.getString("comment"), rs.getString("username")));
+				    	result.add(new Comment(rs.getInt("id"), rs.getString("comment"), rs.getString("username")));
 			    	}
 				    
 				} catch (SQLException e) {
@@ -106,7 +106,33 @@ public class CommentManager {
 			Statement stmt = conn.createStatement();
 			
 			try {
-				ResultSet rs = stmt.executeQuery("INSERT INTO comments VALUES ('" + comment.getComment() + "', '" + comment.getUsername() + "');");
+				ResultSet rs = stmt.executeQuery("INSERT INTO comments (comment, username) VALUES ('" + comment.getComment() + "', '" + comment.getUsername() + "');");
+			    
+			} catch (SQLException e) {
+				throw e;
+				
+			} finally {
+				stmt.close();
+			}
+			
+		} catch (SQLException e) {
+			throw e;
+			
+		} finally {
+		    conn.close();
+		}
+	}
+
+	public static void deleteComment(int commentId) throws SQLException, ClassNotFoundException {
+		
+		Class.forName(DB_DRIVER);
+		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
+
+		try {
+			Statement stmt = conn.createStatement();
+			
+			try {
+				ResultSet rs = stmt.executeQuery("DELETE FROM comments WHERE id = '" + commentId + "'");
 			    
 			} catch (SQLException e) {
 				throw e;

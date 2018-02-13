@@ -13,10 +13,21 @@
 
 <h2>Comments</h2>
 <ul class="list-group">
-	<% for (Comment comment : comments) { %>
-		<li class="list-group-item<% if ((comment.getUsername() != null) && (! comment.getUsername().equals(""))) { %> active<% } %>">
+	<%
+	for (Comment comment : comments) {
+		String extraClass = "";
+
+		if ((comment.getUsername() != null) && (! comment.getUsername().equals(""))) {
+			extraClass = " active";
+		}
+	%>
+		<li class="list-group-item<%= extraClass %>">
 			<%= comment.getComment() %>
-			
+
+			<% if (session.getAttribute("username") != null) { %>
+				<a href="DeleteComment?id=<%= comment.getId() %>" class="close">&times</a>
+			<% } %>
+
 			<% if ((comment.getUsername() != null) && (! comment.getUsername().equals(""))) { %>
 				<span class="label">
 					<%= comment.getUsername() %>
