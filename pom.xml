@@ -58,7 +58,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>appsecdemo</finalName>
+		<finalName>ROOT</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
@@ -67,7 +67,7 @@
 				<configuration>
 					<url>http://localhost:8080/manager</url>
 					<server>TomcatServer</server>
-					<path>/appsecdemo</path>
+					<path>/</path>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -77,7 +77,7 @@
 				<configuration>
 					<url>http://localhost:8080/manager/text</url>
 					<server>TomcatServer</server>
-					<path>/appsecdemo</path>
+					<path>/</path>
 				</configuration>
 			</plugin>
 		</plugins>
