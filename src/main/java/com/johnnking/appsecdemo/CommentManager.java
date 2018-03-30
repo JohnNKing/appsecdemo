@@ -32,7 +32,9 @@ public class CommentManager {
 			    
 				if (CommentManager.getComments().size() == 0) {
 					CommentManager.addComment(new Comment("Welcome!", "Admin"));
-					CommentManager.addComment(new Comment("Hello"));
+					CommentManager.addComment(new Comment("Hi all", "John"));
+					CommentManager.addComment(new Comment("Hi"));
+					CommentManager.addComment(new Comment("Hello", "Mary Beth"));
 				}
 
 			} catch (SQLException e) {

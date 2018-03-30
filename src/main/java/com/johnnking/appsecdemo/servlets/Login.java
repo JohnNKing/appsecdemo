@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.johnnking.appsecdemo.User;
 import com.johnnking.appsecdemo.UserManager;
-
 
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -29,8 +29,9 @@ public class Login extends HttpServlet {
 		if ((username != null) && (! username.equals("")) && (password != null) && (! password.equals(""))) {
 			
 			try {
-				if (UserManager.getUser(username) != null) {
-					if (username.equals(password)) { // Yes, this is intentionally insecure
+				User user = UserManager.getUser(username);
+				if (user != null) {
+					if (user.getPassword().equals(password)) {
 						request.getSession(true).setAttribute("username", username);
 						
 						String destination = request.getParameter("destination");

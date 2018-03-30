@@ -28,10 +28,15 @@ public class UserManager {
 			Statement stmt = conn.createStatement();						
 			
 			try {
-				stmt.execute("CREATE TABLE IF NOT EXISTS users (name varchar(255))");
+				stmt.execute("CREATE TABLE IF NOT EXISTS users (name varchar(255), password varchar(255))");
 				
 				if (UserManager.getUsers().size() == 0) {
 					UserManager.addUser(new User("Admin"));
+					UserManager.addUser(new User("John", "password"));
+					UserManager.addUser(new User("Mary Beth", "YT+mrceeJM8od83t"));
+					UserManager.addUser(new User("Sam"));
+					UserManager.addUser(new User("Dave"));
+					UserManager.addUser(new User("Bob"));
 				}
 			    
 			} catch (SQLException e) {
@@ -62,7 +67,7 @@ public class UserManager {
 			Statement stmt = conn.createStatement();
 			
 			try {
-				ResultSet rs = stmt.executeQuery("SELECT * FROM users");
+				ResultSet rs = stmt.executeQuery("SELECT * FROM users ORDER BY name");
 			
 				try {
 				    while (rs.next()) {
@@ -111,7 +116,7 @@ public class UserManager {
 			
 				try {
 					if (rs.next()) {
-				    	result = new User(rs.getString("name"));
+				    	result = new User(rs.getString("name"), rs.getString("password"));
 					}
 				    
 				} catch (SQLException e) {
@@ -150,7 +155,7 @@ public class UserManager {
 			Statement stmt = conn.createStatement();
 			
 			try {
-				stmt.execute("INSERT INTO users VALUES '" + user.getName() + "'");
+				stmt.execute("INSERT INTO users VALUES ('" + user.getName() + "', '" + user.getPassword() + "')");
 			    
 			} catch (SQLException e) {
 				throw e;
