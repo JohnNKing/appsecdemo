@@ -34,6 +34,24 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>ForgotPassword</servlet-name>
+		<servlet-class>com.johnnking.appsecdemo.servlets.ForgotPassword</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ForgotPassword</servlet-name>
+		<url-pattern>/ForgotPassword</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ChangePassword</servlet-name>
+		<servlet-class>com.johnnking.appsecdemo.servlets.ChangePassword</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ChangePassword</servlet-name>
+		<url-pattern>/ChangePassword</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>AddComment</servlet-name>
 		<servlet-class>com.johnnking.appsecdemo.servlets.AddComment</servlet-class>
 	</servlet>

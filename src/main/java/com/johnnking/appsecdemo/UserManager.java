@@ -28,15 +28,14 @@ public class UserManager {
 			Statement stmt = conn.createStatement();						
 			
 			try {
-				stmt.execute("CREATE TABLE IF NOT EXISTS users (name varchar(255), password varchar(255))");
+				stmt.execute("CREATE TABLE IF NOT EXISTS users (name varchar(255), password varchar(255), favoriteColor varchar(255))");
 				
 				if (UserManager.getUsers().size() == 0) {
-					UserManager.addUser(new User("Admin"));
-					UserManager.addUser(new User("John", "password"));
-					UserManager.addUser(new User("Mary Beth", "YT+mrceeJM8od83t"));
-					UserManager.addUser(new User("Sam"));
-					UserManager.addUser(new User("Dave"));
-					UserManager.addUser(new User("Bob"));
+					UserManager.addUser(new User("Root", "password", "black"));
+					UserManager.addUser(new User("Admin", "Admin", "red"));
+					UserManager.addUser(new User("Manager", "", "green"));
+					UserManager.addUser(new User("John", "N30BByhwSQBQzwfg", "blue"));
+					UserManager.addUser(new User("Mary Beth", "oJVo2KI1TxCHs6B6", "HAHA - No. CaIVauq3cKKb6Ih6izbIvccpdmZcUR47xqm4"));
 				}
 			    
 			} catch (SQLException e) {
@@ -67,11 +66,11 @@ public class UserManager {
 			Statement stmt = conn.createStatement();
 			
 			try {
-				ResultSet rs = stmt.executeQuery("SELECT * FROM users ORDER BY name");
+				ResultSet rs = stmt.executeQuery("SELECT * FROM users");
 			
 				try {
 				    while (rs.next()) {
-				    	result.add(new User(rs.getString("name")));
+				    	result.add(new User(rs.getString("name"), rs.getString("password"), rs.getString("favoriteColor")));
 			    	}
 				    
 				} catch (SQLException e) {
@@ -116,7 +115,7 @@ public class UserManager {
 			
 				try {
 					if (rs.next()) {
-				    	result = new User(rs.getString("name"), rs.getString("password"));
+				    	result = new User(rs.getString("name"), rs.getString("password"), rs.getString("favoriteColor"));
 					}
 				    
 				} catch (SQLException e) {
@@ -155,7 +154,7 @@ public class UserManager {
 			Statement stmt = conn.createStatement();
 			
 			try {
-				stmt.execute("INSERT INTO users VALUES ('" + user.getName() + "', '" + user.getPassword() + "')");
+				stmt.execute("INSERT INTO users (name, password, favoriteColor) VALUES ('" + user.getName() + "', '" + user.getPassword() + "', '" + user.getFavoriteColor() + "')");
 			    
 			} catch (SQLException e) {
 				throw e;
@@ -169,6 +168,49 @@ public class UserManager {
 			
 		} finally {
 		    conn.close();
+		}
+	}
+
+	/*
+	 * Update an existing user
+	 */
+	public static void updateUser(User user) throws SQLException, ClassNotFoundException {
+			
+		Class.forName(DB_DRIVER);
+		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
+
+		try {
+			Statement stmt = conn.createStatement();
+			
+			try {
+				stmt.execute("UPDATE users SET password = '" + user.getPassword() + "', favoriteColor = '" + user.getFavoriteColor() +"'");
+			    
+			} catch (SQLException e) {
+				throw e;
+				
+			} finally {
+				stmt.close();
+			}
+			
+		} catch (SQLException e) {
+			throw e;
+			
+		} finally {
+		    conn.close();
+		}
+	}
+
+	public static void resetPassword(User user) throws SQLException, ClassNotFoundException {
+
+		try {
+			user.setPassword(user.getName());
+			UserManager.updateUser(user);
+		
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 }

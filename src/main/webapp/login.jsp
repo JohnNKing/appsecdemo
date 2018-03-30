@@ -33,4 +33,8 @@ if (error != null) { %>
 	<button type="submit" class="btn btn-default">Sign In</button>
 </form>
 
+<div>
+	<a href="forgot-password.jsp">Forgot password</a>
+</div>
+
 <%@include file="/WEB-INF/include/footer.jsp" %>
