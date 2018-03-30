@@ -26,7 +26,7 @@ public class Login extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		if ((username != null) && (! username.equals("")) && (password != null) && (! password.equals(""))) {
+		if ((username != null) && (! username.equals("")) && (password != null)) {
 			
 			try {
 				User user = UserManager.getUser(username);
