@@ -1,7 +1,6 @@
 package com.johnnking.appsecdemo.rest;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;

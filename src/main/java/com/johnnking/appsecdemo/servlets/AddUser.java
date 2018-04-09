@@ -13,19 +13,22 @@ import com.johnnking.appsecdemo.UserManager;
 
 
 public class AddUser extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
 	public AddUser() {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		doPost(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException {
+
 		String name = request.getParameter("name");
-		
+
 		if ((name != null) && (! name.equals(""))) {
 			
 			try {
