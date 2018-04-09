@@ -3,7 +3,7 @@
 	<display-name>App Sec Demo</display-name>
 
 	<listener>
-	<listener-class>com.johnnking.appsecdemo.Listener</listener-class>
+		<listener-class>com.johnnking.appsecdemo.listeners.Listener</listener-class>
 	</listener>
 
 	<servlet>
@@ -69,7 +69,6 @@
 		<url-pattern>/DeleteComment</url-pattern>
 	</servlet-mapping>
 
-
 	<servlet>
 		<servlet-name>jersey-serlvet</servlet-name>
 		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
@@ -83,6 +82,25 @@
 		<servlet-name>jersey-serlvet</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
+
+	<filter>
+		<filter-name>SessionFilter</filter-name>
+		<filter-class>com.johnnking.appsecdemo.filters.SessionFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SessionFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>com.johnnking.appsecdemo.filters.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/addMod.jsp</url-pattern>
+		<url-pattern>/AddUser</url-pattern>
+	</filter-mapping>
 
 	<!--
 	<listener>

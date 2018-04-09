@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="java.net.URLEncoder, org.apache.commons.lang3.StringEscapeUtils" %>
-<%
-if (session.getAttribute("username") == null) {
-	response.sendRedirect("login.jsp?destination=" + URLEncoder.encode(request.getContextPath() + "/addMod.jsp", "UTF-8"));
-}
-%>
+	import="org.apache.commons.lang3.StringEscapeUtils" %>
 <%@include file="/WEB-INF/include/header.jsp" %>
 
 <h2>Add Moderator</h2>

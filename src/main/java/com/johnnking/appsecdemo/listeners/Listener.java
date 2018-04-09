@@ -1,4 +1,4 @@
-package com.johnnking.appsecdemo;
+package com.johnnking.appsecdemo.listeners;
 
 import javax.servlet.ServletContextEvent;
 

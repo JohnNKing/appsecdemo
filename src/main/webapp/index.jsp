@@ -24,7 +24,7 @@
 		<li class="list-group-item<%= extraClass %>">
 			<%= comment.getComment() %>
 
-			<% if (session.getAttribute("username") != null) { %>
+			<% if (request.getAttribute("username") != null) { %>
 				<a href="DeleteComment?id=<%= comment.getId() %>" class="close">&times</a>
 			<% } %>
 

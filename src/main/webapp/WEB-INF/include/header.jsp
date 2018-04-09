@@ -27,11 +27,11 @@
 					<li><a href="addMod.jsp">Add Moderator</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<% if (session.getAttribute("username") == null) { %>
+					<% if (request.getAttribute("username") == null) { %>
 						<li><a href="login.jsp">Sign In</a></li>
 					<% } else { %>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= (String) session.getAttribute("username") %> <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= (String) request.getAttribute("username") %> <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="change-password.jsp">Change Password</a></li>
 								<li><a href="Logout">Sign Out</a></li>

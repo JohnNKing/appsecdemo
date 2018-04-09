@@ -10,19 +10,23 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.johnnking.appsecdemo.User;
 import com.johnnking.appsecdemo.UserManager;
+import com.johnnking.appsecdemo.session.SessionManager;
 
 public class Login extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
 	public Login() {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		response.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
@@ -32,8 +36,8 @@ public class Login extends HttpServlet {
 				User user = UserManager.getUser(username);
 				if (user != null) {
 					if (user.getPassword().equals(password)) {
-						request.getSession(true).setAttribute("username", username);
-						
+						SessionManager.login(username, request, response);
+
 						String destination = request.getParameter("destination");
 						if (destination == null) {
 							destination = request.getContextPath() + "/";

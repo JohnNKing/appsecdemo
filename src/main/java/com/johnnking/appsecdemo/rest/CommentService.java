@@ -46,12 +46,11 @@ public class CommentService {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public Response addComment(@Context HttpServletRequest request, @FormParam("comment") String comment, @FormParam("username") String username) {
 		Response result;
-        HttpSession session = request.getSession(true);
 
         if ((comment != null) && (! comment.equals(""))) {
 
             if (username == null) {
-                username = (String) session.getAttribute("username");
+                username = (String) request.getAttribute("username");
             }
 
 			try {	
@@ -75,7 +74,6 @@ public class CommentService {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public Response deleteComment(@Context HttpServletRequest request, @FormParam("id") String id) {
 		Response result;
-        HttpSession session = request.getSession(true);
 
         try {
             int numericId = Integer.parseInt(id);
