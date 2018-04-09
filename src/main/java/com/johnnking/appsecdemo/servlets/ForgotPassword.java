@@ -39,14 +39,11 @@ public class ForgotPassword extends HttpServlet {
 						UserManager.resetPassword(user);
 
 						// For convenience, sign the user in
-						request.getSession(true).setAttribute("username", username);
+						SessionManager.login(username, request, response);
 
 						// Direct the user to the change password form
-						response.sendRedirect(request.getContextPath() + "/change-password.jsp");	
+						response.sendRedirect(request.getContextPath() + "/change-password.jsp");
 						return;
-					} else {
-
-						System.out.println(user.getFavoriteColor());
 					}
 				}
 
