@@ -4,6 +4,7 @@ import javax.servlet.ServletContextEvent;
 
 import com.johnnking.appsecdemo.CommentManager;
 import com.johnnking.appsecdemo.UserManager;
+import com.johnnking.appsecdemo.session.CustomSessionManager;
 
 public class Listener implements javax.servlet.ServletContextListener {
 
@@ -11,6 +12,7 @@ public class Listener implements javax.servlet.ServletContextListener {
         try {
 	        CommentManager.init();
             UserManager.init();
+            CustomSessionManager.init();
 
         } catch (Exception e) {
             e.printStackTrace();
