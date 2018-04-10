@@ -11,18 +11,13 @@ import java.util.List;
 
 public class UserManager {
 
-	public final static String DB_DRIVER= "org.hsqldb.jdbcDriver";
-	public final static String DB_CONN = "jdbc:hsqldb:mem:appsecdemo";
-	public final static String DB_USER = "SA";
-	public final static String DB_PASS = "";
-	
 	/*
 	 * Create the User table
 	 */
 	public static void init() throws SQLException, ClassNotFoundException {
 		
-		Class.forName(DB_DRIVER);
-		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
+		Class.forName(DB.DRIVER);
+		Connection conn = DriverManager.getConnection(DB.CONN, DB.USER, DB.PASS);
 
 		try {
 			Statement stmt = conn.createStatement();						
@@ -59,8 +54,8 @@ public class UserManager {
 	public static List<User> getUsers() throws SQLException, ClassNotFoundException {
 		List<User> result = new ArrayList<User>();
 		
-		Class.forName(DB_DRIVER);
-		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
+		Class.forName(DB.DRIVER);
+		Connection conn = DriverManager.getConnection(DB.CONN, DB.USER, DB.PASS);
 
 		try {
 			Statement stmt = conn.createStatement();
@@ -104,8 +99,8 @@ public class UserManager {
 	public static User getUser(String name) throws SQLException, ClassNotFoundException {
 		User result = null;
 		
-		Class.forName(DB_DRIVER);
-		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
+		Class.forName(DB.DRIVER);
+		Connection conn = DriverManager.getConnection(DB.CONN, DB.USER, DB.PASS);
 
 		try {
 			Statement stmt = conn.createStatement();
@@ -147,8 +142,8 @@ public class UserManager {
 	 */
 	public static void addUser(User user) throws SQLException, ClassNotFoundException {
 			
-		Class.forName(DB_DRIVER);
-		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
+		Class.forName(DB.DRIVER);
+		Connection conn = DriverManager.getConnection(DB.CONN, DB.USER, DB.PASS);
 
 		try {
 			Statement stmt = conn.createStatement();
@@ -176,8 +171,8 @@ public class UserManager {
 	 */
 	public static void updateUser(User user) throws SQLException, ClassNotFoundException {
 			
-		Class.forName(DB_DRIVER);
-		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
+		Class.forName(DB.DRIVER);
+		Connection conn = DriverManager.getConnection(DB.CONN, DB.USER, DB.PASS);
 
 		try {
 			Statement stmt = conn.createStatement();

@@ -10,19 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommentManager {
-
-	public final static String DB_DRIVER= "org.hsqldb.jdbcDriver";
-	public final static String DB_CONN = "jdbc:hsqldb:mem:appsecdemo";
-	public final static String DB_USER = "SA";
-	public final static String DB_PASS = "";
 	
 	/*
 	 * Create the Comments table
 	 */
 	public static void init() throws SQLException, ClassNotFoundException {
 		
-		Class.forName(DB_DRIVER);
-		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
+		Class.forName(DB.DRIVER);
+		Connection conn = DriverManager.getConnection(DB.CONN, DB.USER, DB.PASS);
 
 		try {
 			Statement stmt = conn.createStatement();						
@@ -58,8 +53,8 @@ public class CommentManager {
 	public static List<Comment> getComments() throws SQLException, ClassNotFoundException {
 		List<Comment> result = new ArrayList<Comment>();
 		
-		Class.forName(DB_DRIVER);
-		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
+		Class.forName(DB.DRIVER);
+		Connection conn = DriverManager.getConnection(DB.CONN, DB.USER, DB.PASS);
 
 		try {
 			Statement stmt = conn.createStatement();
@@ -101,14 +96,14 @@ public class CommentManager {
 	 */
 	public static void addComment(Comment comment) throws SQLException, ClassNotFoundException {
 			
-		Class.forName(DB_DRIVER);
-		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
+		Class.forName(DB.DRIVER);
+		Connection conn = DriverManager.getConnection(DB.CONN, DB.USER, DB.PASS);
 
 		try {
 			Statement stmt = conn.createStatement();
 			
 			try {
-				ResultSet rs = stmt.executeQuery("INSERT INTO comments (comment, username) VALUES ('" + comment.getComment() + "', '" + comment.getUsername() + "');");
+				stmt.execute("INSERT INTO comments (comment, username) VALUES ('" + comment.getComment() + "', '" + comment.getUsername() + "');");
 			    
 			} catch (SQLException e) {
 				throw e;
@@ -127,14 +122,14 @@ public class CommentManager {
 
 	public static void deleteComment(int commentId) throws SQLException, ClassNotFoundException {
 		
-		Class.forName(DB_DRIVER);
-		Connection conn = DriverManager.getConnection(DB_CONN, DB_USER, DB_PASS);
+		Class.forName(DB.DRIVER);
+		Connection conn = DriverManager.getConnection(DB.CONN, DB.USER, DB.PASS);
 
 		try {
 			Statement stmt = conn.createStatement();
 			
 			try {
-				ResultSet rs = stmt.executeQuery("DELETE FROM comments WHERE id = '" + commentId + "'");
+				stmt.execute("DELETE FROM comments WHERE id = '" + commentId + "'");
 			    
 			} catch (SQLException e) {
 				throw e;
