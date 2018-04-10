@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class CookieStrategy implements Strategy {
 
-    public String getUsername(HttpServletRequest request) {
+    public String getUsername(HttpServletRequest request, HttpServletResponse response) {
         String username = null;
         Cookie[] cookies = request.getCookies();
 

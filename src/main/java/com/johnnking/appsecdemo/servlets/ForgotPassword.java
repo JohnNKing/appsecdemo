@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.johnnking.appsecdemo.User;
 import com.johnnking.appsecdemo.UserManager;
-import com.johnnking.appsecdemo.session.SessionManager;
+import com.johnnking.appsecdemo.session.SessionController;
 
 
 public class ForgotPassword extends HttpServlet {
@@ -39,7 +39,7 @@ public class ForgotPassword extends HttpServlet {
 						UserManager.resetPassword(user);
 
 						// For convenience, sign the user in
-						SessionManager.login(username, request, response);
+						SessionController.login(username, request, response);
 
 						// Direct the user to the change password form
 						response.sendRedirect(request.getContextPath() + "/change-password.jsp");

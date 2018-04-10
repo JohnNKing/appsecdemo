@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 
 public class JEESessionStrategy implements Strategy {
 
-    public String getUsername(HttpServletRequest request) {
+    public String getUsername(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession(true);
         String username = (String) session.getAttribute("username");
         return username;

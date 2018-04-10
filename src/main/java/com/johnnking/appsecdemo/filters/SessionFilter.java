@@ -11,8 +11,9 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import com.johnnking.appsecdemo.session.SessionManager;
+import com.johnnking.appsecdemo.session.SessionController;
 
 /*
  * If authenticated, this sets the "username" attribute in the servlet request for later use.
@@ -33,7 +34,8 @@ public class SessionFilter implements Filter {
             throws IOException, ServletException {
 
         HttpServletRequest request = (HttpServletRequest) req;
-        String username = SessionManager.getUsername(request);
+        HttpServletResponse response = (HttpServletResponse) res;
+        String username = SessionController.getUsername(request, response);
         request.setAttribute("username", username);
 
         chain.doFilter(req, res);

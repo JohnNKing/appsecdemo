@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public interface Strategy {
 
-    String getUsername(HttpServletRequest request);
+    String getUsername(HttpServletRequest request, HttpServletResponse response);
 
     void login(String username, HttpServletRequest request, HttpServletResponse response);
 

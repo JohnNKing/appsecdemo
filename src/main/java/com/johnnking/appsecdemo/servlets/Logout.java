@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.johnnking.appsecdemo.session.SessionManager;
+import com.johnnking.appsecdemo.session.SessionController;
 
 public class Logout extends HttpServlet {
 
@@ -18,7 +18,7 @@ public class Logout extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		SessionManager.logout(request, response);
+		SessionController.logout(request, response);
 		response.sendRedirect(request.getContextPath() + "/");
 	}
 	

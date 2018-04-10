@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.johnnking.appsecdemo.User;
 import com.johnnking.appsecdemo.UserManager;
-import com.johnnking.appsecdemo.session.SessionManager;
+import com.johnnking.appsecdemo.session.SessionController;
 
 public class Login extends HttpServlet {
 
@@ -36,7 +36,7 @@ public class Login extends HttpServlet {
 				User user = UserManager.getUser(username);
 				if (user != null) {
 					if (user.getPassword().equals(password)) {
-						SessionManager.login(username, request, response);
+						SessionController.login(username, request, response);
 
 						String destination = request.getParameter("destination");
 						if (destination == null) {
