@@ -24,7 +24,9 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="./">Comments</a></li>
+					<% if (request.getAttribute("username") != null) { %>
 					<li><a href="addMod.jsp">Add Moderator</a></li>
+					<% } %>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<% if (request.getAttribute("username") == null) { %>

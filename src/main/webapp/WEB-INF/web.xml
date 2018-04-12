@@ -98,7 +98,6 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>LoginFilter</filter-name>
-		<url-pattern>/addMod.jsp</url-pattern>
 		<url-pattern>/AddUser</url-pattern>
 		<url-pattern>/change-password.jsp</url-pattern>
 		<url-pattern>/ChangePassword</url-pattern>
