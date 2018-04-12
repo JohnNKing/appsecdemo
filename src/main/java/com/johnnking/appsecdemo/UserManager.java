@@ -26,11 +26,12 @@ public class UserManager {
 				stmt.execute("CREATE TABLE IF NOT EXISTS users (name varchar(255), password varchar(255), favoriteColor varchar(255))");
 				
 				if (UserManager.getUsers().size() == 0) {
-					UserManager.addUser(new User("Root", "password", "black"));
+					UserManager.addUser(new User("Root", "password", "blue"));
 					UserManager.addUser(new User("Admin", "Admin", "red"));
-					UserManager.addUser(new User("Manager", "", "green"));
-					UserManager.addUser(new User("John", "N30BByhwSQBQzwfg", "blue"));
+					UserManager.addUser(new User("Manager", "qwerty", "green"));
+					UserManager.addUser(new User("Eva", "v1b9vklkjXVlKNWv", "blue"));
 					UserManager.addUser(new User("Mary Beth", "oJVo2KI1TxCHs6B6", "HAHA - No. CaIVauq3cKKb6Ih6izbIvccpdmZcUR47xqm4"));
+					UserManager.addUser(new User("John", "N30BByhwSQBQzwfg", "kerghshjdfnsdvjar"));
 				}
 			    
 			} catch (SQLException e) {
