@@ -8,6 +8,7 @@ public class JEESessionStrategy implements Strategy {
 
     public String getUsername(HttpServletRequest request, HttpServletResponse response) {
         // TODO
+        return null;
     }
 
     public void login(String username, HttpServletRequest request, HttpServletResponse response) {
