@@ -39,7 +39,7 @@ public class CustomSessionStrategy implements Strategy {
     private void createNewSession(HttpServletResponse response) {
 
         // Generate a new session ID
-        byte[] randomBytes = new byte[128];
+        byte[] randomBytes = new byte[32];
         new Random().nextBytes(randomBytes);
         String sessionId = Base64.getEncoder().encodeToString(randomBytes);
 
