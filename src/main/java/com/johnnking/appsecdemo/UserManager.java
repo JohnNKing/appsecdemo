@@ -179,7 +179,7 @@ public class UserManager {
 			Statement stmt = conn.createStatement();
 			
 			try {
-				stmt.execute("UPDATE users SET password = '" + user.getPassword() + "', favoriteColor = '" + user.getFavoriteColor() +"'");
+				stmt.execute("UPDATE users SET password = '" + user.getPassword() + "', favoriteColor = '" + user.getFavoriteColor() + "' WHERE name = '" + user.getName() + "'");
 			    
 			} catch (SQLException e) {
 				throw e;
